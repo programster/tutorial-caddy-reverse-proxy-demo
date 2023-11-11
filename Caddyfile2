@@ -1,0 +1,19 @@
+# A more complete version of the Caddyfile 
+# That performs active healthchecking etc.
+http://* {
+    reverse_proxy 192.168.0.11:8080 192.168.0.11:8888 {
+
+        lb_policy round_robin # "random" is default if not specified
+
+        lb_retries 2
+        fail_duration 10s
+
+        # https://thedevelopercafe.com/articles/reverse-proxy-in-caddy-5c40d2fe21fe
+        health_uri /
+        health_interval 5s
+        health_timeout 2s
+        health_status 2xx
+    }
+}
+
+

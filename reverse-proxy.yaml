@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  caddy:
+    container_name: reverse-proxy
+    image: caddy:latest
+    ports:
+      - "9000:80"
+    volumes:
+      - $PWD/Caddyfile:/etc/caddy/Caddyfile

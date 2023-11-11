@@ -1,0 +1,8 @@
+version: "3.9"
+
+services:
+  webeserver:
+    container_name: webserver1
+    image: jwilder/whoami
+    ports:
+      - "8080:8000"
